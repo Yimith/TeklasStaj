@@ -1,0 +1,21 @@
+{
+  "selected_model": "/kaggle/working/runs/person_forklift_yolo11n_baseline/weights/best.pt",
+  "precision": 0.6026840480856588,
+  "recall": 0.690794313377282,
+  "mAP50": 0.5913016674837741,
+  "mAP50_95": 0.3741506181290024,
+  "classes": {
+    "forklift": {
+      "precision": 0.8649640496495499,
+      "recall": 0.8888888888888888,
+      "mAP50": 0.9484016573556429,
+      "mAP50_95": 0.6360433016492187
+    },
+    "person": {
+      "precision": 0.3404040465217678,
+      "recall": 0.49269973786567517,
+      "mAP50": 0.23420167761190547,
+      "mAP50_95": 0.11225793460878616
+    }
+  }
+}

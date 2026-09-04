@@ -1,6 +1,15 @@
 .DS_Store
 .venv/
 __pycache__/
-*.pyc
+*.py[cod]
 .pytest_cache/
 reports/
+
+# Girdi videoları, model ağırlıkları ve üretilen sonuçlar Git'e eklenmez.
+data/videos/
+outputs/
+*.pt
+*.mp4
+*.mov
+*.avi
+*.mkv
