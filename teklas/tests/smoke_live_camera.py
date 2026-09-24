@@ -40,7 +40,7 @@ def main():
                 reset = client.post(endpoint + "/step", json={"time_s": 0, "generation": 1}, headers=headers).raise_for_status().json()
                 assert reset["ucf"] is None and reset["context_seconds"] == 0
                 times = [r["processing_ms"] for r in results]
-                print(f"Gerçek model HTTP testi: {len(results)} adım, UCF sonucu var, sarma sıfırlaması doğru.")
+                print(f"HTTP testi: {len(results)} adım; UCF ve sarma kontrolü geçti.")
                 print(f"İşlem medyanı: {np.median(times):.0f} ms; maksimum: {max(times):.0f} ms; cihaz: {health['device']}")
                 print("Yapay video kullanıldı; olay tespit başarısı ölçülmedi.")
             finally:

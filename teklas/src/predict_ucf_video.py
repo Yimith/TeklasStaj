@@ -210,7 +210,7 @@ def infer_video(model, path, meta, info, device, batch_size, progress=True):
             processed += len(clips)
             now = time.perf_counter()
             if progress and (processed == len(starts) or now - last_report >= 5):
-                print(f"İşlenen klip: {processed}/{len(starts)} | Geçen süre: {now - begin:.1f} sn", flush=True)
+                print(f"Klip: {processed}/{len(starts)} | Süre: {now - begin:.1f} sn", flush=True)
                 last_report = now
             del inputs, features
     if processed != len(starts):
@@ -273,21 +273,21 @@ def main():
             raise FileNotFoundError(f"Video bulunamadı: {source}")
         device = choose_device(args.device)
         torch.set_num_threads(args.threads)
-        print(f"Aygıt: {device} | Model yükleniyor: {weights}", flush=True)
+        print(f"Cihaz: {device} | Model: {weights}", flush=True)
         model, info = load_model(weights, device)
         meta = read_metadata(source)
         count = len(window_starts(meta, info["clip_config"], info["val_config"]))
         print(f"Epoch: {info['epoch']} | Video: {source.name}\n"
               f"Süre: {meta['duration_s']:.2f} sn | Kaynak FPS: {meta['fps']:.3f}\n"
-              f"Klip: {count} | Video 0'dan sonuna kadar işleniyor.", flush=True)
+              f"Klip: {count} | Tam video işleniyor.", flush=True)
         result = infer_video(model, source, meta, info, device, args.batch_size)
         run_dir = save_results(args.output_dir.expanduser().resolve(), source, weights,
                                meta, info, device, args.batch_size, result)
-        print(f"\nVİDEO TAHMİNİ: {result['prediction']}\nSınıf softmax skorları:")
+        print(f"\nTahmin: {result['prediction']}\nSoftmax skorları:")
         for name, score in result["softmax_scores"].items():
             print(f"  {name:<12}: {score:.4f}")
-        print(f"Toplam okuma + tahmin: {result['elapsed_s']:.1f} sn\nSonuçlar: {run_dir}\n"
-              "Not: Bu video düzeyinde sınıflandırmadır; olay zamanı/kutusu üretmez.")
+        print(f"Toplam süre: {result['elapsed_s']:.1f} sn\nSonuçlar: {run_dir}\n"
+              "Video sınıflandırmasıdır; olay zamanı veya kutu üretmez.")
     except (ValueError, RuntimeError, OSError, KeyError, TypeError) as exc:
         parser.exit(2, f"Hata: {exc}\n")
     except KeyboardInterrupt:

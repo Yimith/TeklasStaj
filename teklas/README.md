@@ -4,7 +4,7 @@
 
 Kayıtlı fabrika videolarını kamera panelinde oynatırken aynı görüntü üzerinde
 olay sınıflandırması ve nesne tespiti/takibi yapan yerel prototip.
-Bu klasör yalnızca mevcut uygulamanın kaynaklarını içerir; eğitim ve deneme arşivi değildir.
+Bu klasör uygulamayı ve kullanılan iki modelin eğitim notebooklarını içerir.
 
 ## Güncel kapsam
 
@@ -33,15 +33,27 @@ eşzamanlı analiz etmez; RTSP veya doğrulanmış iş güvenliği alarm sistemi
 src/                   Güncel backend ve model çıkarım kodu
 frontend/              Kamera paneli, kaynaklar ve kilitli bağımlılıklar
 models/                Gerekli iki ağırlığın açıklaması ve SHA-256 kaydı
-docs/                  Çalışma biçimi ve paket kapsamı
+notebooks/             Kullanılan UCF ve forklift modellerinin eğitimi
 tests/                 Backend testleri ve yapay-video kontrolü
 requirements.txt       Backend için tek kurulum girişi
 ```
 
-**Notebooklar, eğitim kodları/çıktıları, veri setleri, kişisel test videoları,
-eski model sürümleri, `.venv`, `node_modules` ve derlenmiş çıktılar bu pakete alınmadı.**
+Eski notebooklar, eğitim çıktıları, veri setleri, kişisel test videoları,
+eski model sürümleri, `.venv`, `node_modules` ve derlenmiş çıktılar dahil değildir.
 Model ağırlıkları da kaynak paketinden ayrıdır; uygulamanın analiz yapması için
 aşağıdaki iki dosyayı ayrıca eklemek gerekir.
+
+## Eğitim notebookları
+
+| Notebook | Yerelde kullanılan model | Sınıflar |
+| --- | --- | --- |
+| [ucf-data_v1.ipynb](notebooks/ucf-data_v1.ipynb) | `models/best.pt` | Normal, Fighting, Assault, Arson |
+| [objectdetection_3class_kaggle.ipynb](notebooks/objectdetection_3class_kaggle.ipynb) | `models/forklift_3class_best.pt` | forklift, person, forklift_tipped |
+
+Notebooklar Kaggle içindir. GPU ve interneti açıp ilgili veri setlerini ekleyin;
+girdi yollarını kontrol edin. Forklift eğitimi varsayılan olarak kapalıdır.
+Veri kontrolünden sonra ayar hücresindeki `START_TRAINING` değerini `True` yapın.
+Kayıtlı hücre çıktıları temizlenmiştir; eğitim ayarları değiştirilmemiştir.
 
 ## Kurulum
 
@@ -94,7 +106,7 @@ Panelde model hazır mesajını gördükten sonra video seçin → **Birlikte an
 hazır mesajı → **Oynat**. Bir başka kamerada analiz başlatmak önceki analizi kapatır.
 
 Videolar sadece bu bilgisayardaki servise aktarılır; internete yüklenmez.
-Geçici kopya oturum kapandığında temizlenir. Ayrıntılar: [Backend rehberi](docs/camera_backend.md).
+Geçici kopya oturum kapandığında temizlenir.
 
 ## Testler
 
@@ -116,15 +128,8 @@ pnpm build
 Açık/boş backend ve iki model ağırlığı varken `tests/smoke_live_camera.py`, geçici
 yapay videoyla gerçek HTTP çıkarım akışını kontrol eder. Gerçek olay başarısını ölçmez.
 
-## GitHub'a hazırlık
+## Git dosyaları
 
-Bu klasörde `.git` oluşturulmadı; commit/push yapılmadı. [.gitignore](.gitignore)
-notebook, veri/video, model ağırlığı, bağımlılık ve yerel ayar dosyalarını dışlar.
-Model ağırlıklarını standart kaynak commit'ine eklemeyin; paylaşımı ayrıca planlayın.
-
-Bu klasör eski çalışma deposunun içinde duruyorsa **üst depodaki staged dosyalar
-bu paketle temizlenmiş olmaz**. Önceki eğitim/veri dosyalarını yanlışlıkla
-göndermemek için üst klasörde doğrudan `git add .` / `git commit` çalıştırmayın.
-Bu hazırlık, orijinal çalışma dosyalarını veya Git indeksini değiştirmez.
-
-Paket seçimleri: [PAKET_ICERIGI.md](docs/PAKET_ICERIGI.md).
+[.gitignore](.gitignore) yalnızca yukarıdaki iki notebooka izin verir.
+Veri setleri, videolar, model ağırlıkları, bağımlılıklar ve yerel ayarlar dışlanır.
+Model ağırlıklarını kaynak commit'ine eklemeyin.

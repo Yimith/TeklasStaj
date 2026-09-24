@@ -9,6 +9,9 @@ mevcut çalışma projesindeki aşağıdaki iki dosyayı buraya kopyalayın.
 | `best.pt` | R3D-18 + Attention MIL | Normal, Fighting, Assault, Arson | 333012509 |
 | `forklift_3class_best.pt` | YOLO + ByteTrack | forklift, person, forklift_tipped | 5466202 |
 
+Eğitim notebookları: [UCF](../notebooks/ucf-data_v1.ipynb) ve
+[forklift](../notebooks/objectdetection_3class_kaggle.ipynb).
+
 Dosya adı "best" tek başına model sürümünü tanımlamaz. Doğru kopyaları
 doğrulamak için [manifest.json](manifest.json) içindeki SHA-256 değerlerini kullanın.
 

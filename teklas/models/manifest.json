@@ -4,6 +4,7 @@
   "models": [
     {
       "file": "best.pt",
+      "training_notebook": "notebooks/ucf-data_v1.ipynb",
       "purpose": "ucf_event_classification",
       "architecture": "R3DAttentionMIL",
       "class_names": ["Normal", "Fighting", "Assault", "Arson"],
@@ -12,6 +13,7 @@
     },
     {
       "file": "forklift_3class_best.pt",
+      "training_notebook": "notebooks/objectdetection_3class_kaggle.ipynb",
       "purpose": "object_detection_and_tracking",
       "architecture": "YOLO + ByteTrack",
       "class_names": ["forklift", "person", "forklift_tipped"],
