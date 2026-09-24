@@ -1,0 +1,4 @@
+-r requirements-ucf.txt
+-r requirements-backend.txt
+ultralytics==8.4.41
+lap>=0.5.12

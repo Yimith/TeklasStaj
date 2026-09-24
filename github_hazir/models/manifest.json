@@ -1,0 +1,22 @@
+{
+  "snapshot_date": "2026-09-24",
+  "weights_included": false,
+  "models": [
+    {
+      "file": "best.pt",
+      "purpose": "ucf_event_classification",
+      "architecture": "R3DAttentionMIL",
+      "class_names": ["Normal", "Fighting", "Assault", "Arson"],
+      "size_bytes": 333012509,
+      "sha256": "d92daf11f85a31e784f12de2f213e772d4eb9a16847051577eb0a6cfe646449d"
+    },
+    {
+      "file": "forklift_3class_best.pt",
+      "purpose": "object_detection_and_tracking",
+      "architecture": "YOLO + ByteTrack",
+      "class_names": ["forklift", "person", "forklift_tipped"],
+      "size_bytes": 5466202,
+      "sha256": "34d5abd1202841eb6b2f62b54ec415e7279e7fce172997539d5d530e840d03c1"
+    }
+  ]
+}

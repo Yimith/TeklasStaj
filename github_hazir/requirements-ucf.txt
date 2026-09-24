@@ -1,0 +1,4 @@
+torch>=2.6
+torchvision>=0.21
+opencv-python>=4.8
+numpy>=1.24
