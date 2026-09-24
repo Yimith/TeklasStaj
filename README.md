@@ -1,2 +1,0 @@
-# TeklasStaj
-Teklas Staj

@@ -46,8 +46,7 @@ aşağıdaki iki dosyayı ayrıca eklemek gerekir.
 ## Kurulum
 
 Python 3.10+, Node.js 22.13+ ve pnpm 11 gerekir. Aşağıdaki komutları
-**bu README'nin bulunduğu klasörde** çalıştırın. GitHub'a bu klasörün içeriği
-depo kökü olarak konabilir; `github_hazir` adını korumak zorunlu değildir.
+**bu README'nin bulunduğu `teklas/` klasöründe** çalıştırın.
 
 ```bash
 python3 -m venv .venv
