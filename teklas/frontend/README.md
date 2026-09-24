@@ -1,7 +1,7 @@
 # Teklas kamera paneli
 
-Bu klasör mevcut UCF + Forklift panelinin kaynak kopyasıdır. React, TypeScript,
-Vinext/Vite ve Tailwind kullanır. Hazır Shadcn/Base UI bileşenleri korunur.
+UCF ve forklift analizini gösteren kamera paneli. React, TypeScript,
+Vinext/Vite, Tailwind ve Shadcn/Base UI bileşenlerini kullanır.
 Python servisini çalıştırmadan videolar oynatılabilir, ancak model analizi yapılamaz.
 
 ## Çalıştırma
@@ -43,8 +43,6 @@ pnpm build
 
 `pnpm start` üretim önizlemesini 4173 portunda açar; Python API yine gereklidir.
 Statik dosyaların internete yüklenmesi Python çıkarım servisini yayınlamaz.
-Bu paket için hosting kaydı veya dağıtım yapılmadı.
 
 Kaynaklar: `app/` sayfa/stiller, `components/` kamera ve durum alanları,
 `hooks/` oynatma/analiz bağlantısı, `lib/` ortak mantık, `tests/` birim testleri.
-`pnpm-lock.yaml` ve vendored UI bileşenleri eksiksiz korunmuştur.

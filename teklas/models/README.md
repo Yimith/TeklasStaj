@@ -1,8 +1,7 @@
-# Kullanılan son model ağırlıkları
+# Model ağırlıkları
 
-Bu klasörde ağırlık dosyaları **yoktur**. GitHub kaynak paketinin eğitim arşivi
-veya büyük binary deposu olmaması için ayrı tutulmuştur. Analiz yapabilmek için
-mevcut çalışma projesindeki aşağıdaki iki dosyayı buraya kopyalayın.
+Ağırlık dosyaları depoda bulunmaz. Analiz için aşağıdaki iki dosyayı
+`models/` klasörüne ekleyin.
 
 | Dosya | Görev | Sınıflar | Bayt |
 | --- | --- | --- | ---: |
@@ -12,16 +11,14 @@ mevcut çalışma projesindeki aşağıdaki iki dosyayı buraya kopyalayın.
 Eğitim notebookları: [UCF](../notebooks/ucf-data_v1.ipynb) ve
 [forklift](../notebooks/objectdetection_3class_kaggle.ipynb).
 
-Dosya adı "best" tek başına model sürümünü tanımlamaz. Doğru kopyaları
-doğrulamak için [manifest.json](manifest.json) içindeki SHA-256 değerlerini kullanın.
+Dosyaları [manifest.json](manifest.json) içindeki SHA-256 değerleriyle doğrulayın.
 
-İki dosya eklendiğinde `src/serve_camera.py` bunları otomatik bulur. Eksik veya
-uyumsuz modelde servis/panel hata gösterir; sahte Normal sonucu üretilmez.
+`src/serve_camera.py` modelleri bu klasörden yükler. Eksik veya uyumsuz
+dosya varsa analiz başlatılamaz.
 
-Ağırlıklar `.gitignore` ile dışlanır. Bu dosyaları dağıtmak isterseniz Git LFS
-veya ayrı bir ağırlık dağıtım kanalı ayrıca yapılandırılmalıdır; bu pakette
-otomatik indirme adresi veya erişim anahtarı yoktur. Güvenilmeyen `.pt` dosyaları
-kullanılmamalıdır.
+Ağırlıklar `.gitignore` ile dışlanır ve otomatik indirilmez. Paylaşım için
+Git LFS veya ayrı bir dosya sunucusu kullanılabilir. Yalnızca güvenilir
+kaynaklardan alınan `.pt` dosyalarını kullanın.
 
 Dahil edilmeyen alternatifler: `best7class.pt`, `forklift_obb_best.pt`,
 `person_forklift_yolo11n_best.pt` ve eğitim artifact klasörleri.

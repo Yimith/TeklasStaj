@@ -14,7 +14,7 @@ def main():
     with httpx.Client(base_url=base, timeout=60) as client:
         health = client.get("/api/health").raise_for_status().json()
         if not health["ready"] or health["active_sessions"]:
-            raise RuntimeError("Modeller hazır ve servis boş olmalı; açık kullanıcı analizine dokunulmadı.")
+            raise RuntimeError("Test için modeller hazır olmalı ve aktif analiz oturumu bulunmamalı.")
         with tempfile.TemporaryDirectory(prefix="teklas-smoke-") as folder:
             path = Path(folder) / "synthetic.mp4"
             writer = cv2.VideoWriter(str(path), cv2.VideoWriter_fourcc(*"mp4v"), 30, (320, 240))

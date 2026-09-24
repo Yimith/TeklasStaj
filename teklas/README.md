@@ -1,7 +1,5 @@
 # Teklas · UCF + Forklift İzleme
 
-**Güncel uygulama kopyası · 24 Eylül 2026**
-
 Kayıtlı fabrika videolarını kamera panelinde oynatırken aynı görüntü üzerinde
 olay sınıflandırması ve nesne tespiti/takibi yapan yerel prototip.
 Bu klasör uygulamayı ve kullanılan iki modelin eğitim notebooklarını içerir.
@@ -53,7 +51,6 @@ aşağıdaki iki dosyayı ayrıca eklemek gerekir.
 Notebooklar Kaggle içindir. GPU ve interneti açıp ilgili veri setlerini ekleyin;
 girdi yollarını kontrol edin. Forklift eğitimi varsayılan olarak kapalıdır.
 Veri kontrolünden sonra ayar hücresindeki `START_TRAINING` değerini `True` yapın.
-Kayıtlı hücre çıktıları temizlenmiştir; eğitim ayarları değiştirilmemiştir.
 
 ## Kurulum
 
