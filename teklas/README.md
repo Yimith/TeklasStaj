@@ -125,8 +125,3 @@ pnpm build
 Açık/boş backend ve iki model ağırlığı varken `tests/smoke_live_camera.py`, geçici
 yapay videoyla gerçek HTTP çıkarım akışını kontrol eder. Gerçek olay başarısını ölçmez.
 
-## Git dosyaları
-
-[.gitignore](.gitignore) yalnızca yukarıdaki iki notebooka izin verir.
-Veri setleri, videolar, model ağırlıkları, bağımlılıklar ve yerel ayarlar dışlanır.
-Model ağırlıklarını kaynak commit'ine eklemeyin.
